@@ -7,9 +7,9 @@ docker compose up --build
 
 # ADD THE MODEL IN LABEL STUDIO
 ## step 1(project > settings > Model > Connect Model):
-![1.png](/home/mehmet/ml-backend-docker/.README-Resources/1.png)
-## step 2 (name it, Backend URL: ):
-![2.png](/home/mehmet/ml-backend-docker/.README-Resources/2.png)
+![1.png](.README-Resources/1.png)
+## step 2 (name it, Backend URL: http://localhost:9090):
+![2.png](.README-Resources/2.png)
 
 # important info
 * ## datasets location
