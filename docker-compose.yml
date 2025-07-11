@@ -1,0 +1,25 @@
+services:
+  ml-backend:
+    container_name: ml-backend
+    user: root
+    build:
+      context: .
+      args:
+        - TEST_ENV= ${TEST_ENV}
+    environment:
+      - LABEL_STUDIO_URL=http://host.docker.internal:8080
+      - LABEL_STUDIO_ML_BACKEND_HOST=0.0.0.0
+      - LABEL_STUDIO_ML_BACKEND_PORT=9090
+      - LABEL_STUDIO_HOST=${LABEL_STUDIO_HOST:-http://host.docker.internal:8080}
+      - ALLOW_CUSTOM_MODEL_PATH=true
+    ports:
+      - "9090:9090"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"        # works on Docker ≥20.10
+    volumes:
+      - "./data/server:/data"
+      - "./cache_dir:/app/cache_dir"
+      - .:/app
+      - ./best_s_v8.pt:/app/best_s_v8.pt
+      - /home/mehmet/datasets:/datasets
+    command: ["python", "_wsgi.py", "--host", "0.0.0.0", "--port", "9090"]

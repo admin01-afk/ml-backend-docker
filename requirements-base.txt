@@ -1,0 +1,9 @@
+gunicorn==23.0.0
+pydantic>=1.10
+
+#label-studio-ml @ git+https://github.com/HumanSignal/label-studio-ml-backend.git@master
+#label-studio-sdk==1.0.18
+#label-studio-sdk @ git+https://github.com/HumanSignal/label-studio-sdk.git@master
+
+# Now install compatible versions manually
+#pillow==10.4.0
